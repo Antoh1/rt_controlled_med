@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="point_of_sale.CustomPopupButton">
+            <div class="popup popup-textinput">
+                <div class="modal-header">
+                    <h4 class="modal-title"><t t-esc="props.title" /></h4>
+                </div>
+                <div class="modal-body col d-flex justify-content-between align-items-center p-3">
+                    <label class="form-label label" for="patient">Patient Name</label>
+                    <input name="patient" class="form-control form-control-lg w-75 mx-auto" type="text" t-model="state.patientName" t-ref="input" t-att-placeholder="props.placeholder"/>
+                </div>
+                <div class="modal-body col d-flex justify-content-between align-items-center p-3">
+                    <label class="form-label label" for="contact">Patient TEL: </label>
+                    <input name="contact" class="form-control form-control-lg w-75 mx-auto" type="tel" t-model="state.patientNo" t-ref="input" t-att-placeholder="props.placeholder"/>
+                </div>
+                <div class="modal-body col d-flex justify-content-between align-items-center p-3">
+                    <label class="form-label label" for="hospital">Hospital </label>
+                    <input name="hospital" class="form-control form-control-lg w-75 mx-auto" type="text" t-model="state.Hosp" t-ref="input" t-att-placeholder="props.placeholder"/>
+                </div>
+                <div class="modal-body col d-flex justify-content-between align-items-center p-3">
+                    <label class="form-label label" for="doctor">Doctor's Name</label>
+                    <input name="doctor" class="form-control form-control-lg w-75 mx-auto" type="text" t-model="state.Doc" t-ref="input" t-att-placeholder="props.placeholder"/>
+                </div>
+                <div class="modal-body col d-flex justify-content-between align-items-center p-3">
+                    <label class="form-label label" for="doccont">Doctor's Tel: </label>
+                    <input name="doccont" class="form-control form-control-lg w-75 mx-auto" type="tel" t-model="state.docTel" t-ref="input" t-att-placeholder="props.placeholder"/>
+                </div>
+                <div class="modal-body col d-flex justify-content-between align-items-center p-3">
+                    <label class="form-label label" for="presc">Doctor's Prescription</label>
+                    <textarea name="presc" class="form-control" t-ref="input" t-model="state.docPres" placeholder="Add Doctor's Prescription..." type="text" rows="4" />
+                </div>
+                <div class="footer footer-flex modal-footer">
+                    <div class="button confirm highlight btn btn-lg btn-primary" t-on-click="confirm">
+                        <t t-esc="props.confirmText" />
+                    </div>
+
+                </div>
+            </div>
+    </t>
+
+</templates>

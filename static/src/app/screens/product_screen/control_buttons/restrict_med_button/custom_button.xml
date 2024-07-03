@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="point_of_sale.OrderlineCustomerNoteButton2">
+        <button class="control-button btn btn-light rounded-0 fw-bolder" t-on-click="() => this.onClick()">
+            <i class="fa fa-clock-o me-1" />
+            <span> </span>
+            <span>Restrict Med</span>
+        </button>
+    </t>
+
+</templates>
+

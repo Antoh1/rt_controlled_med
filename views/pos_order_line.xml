@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_order_line_view_inherit" model="ir.ui.view">
+        <field name="name">pos.order.line.view.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='customer_note']" position="after">
+                <field name="patient_name" optional="hide"/>
+                <field name="patient_no" optional="hide"/>
+                <field name="hosp_name" optional="hide"/>
+                <field name="doctor_name" optional="hide"/>
+                <field name="doctor_no" optional="hide"/>
+                <field name="prescription" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="rt_pos_order_line_tree_view" model="ir.ui.view">
+        <field name="name">rt.pos.order.line.tree.view</field>
+        <field name="model">pos.order.line</field>
+        <field name="arch" type="xml">
+            <tree string="POS Order Lines">
+                <field name="order_id" />
+                <field name="create_date" string="Sold On"/>
+                <field name="product_id" />
+                <field name="qty" />
+                <field name="price_unit" widget="monetary"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="patient_name" optional="hide"/>
+                <field name="patient_no" optional="hide"/>
+                <field name="hosp_name" optional="hide"/>
+                <field name="doctor_name" optional="hide"/>
+                <field name="doctor_no" optional="hide"/>
+                <field name="prescription" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_pos_order_lines" model="ir.actions.act_window">
+        <field name="name">Pos Sales lines</field>
+        <field name="res_model">pos.order.line</field>
+        <field name="view_id" ref="rt_pos_order_line_tree_view" />
+    </record>
+
+    <menuitem id="rt_menu_pos_lines" parent="point_of_sale.menu_point_of_sale" action="action_pos_order_lines" sequence="3"/>
+
+</odoo>
